@@ -1,7 +1,11 @@
 module.exports = {
   content: ['./dist/*.html'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'inter' : ['inter']
+      }
+    },
   },
   variants: {
     extend: {},

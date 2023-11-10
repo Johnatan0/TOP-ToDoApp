@@ -1,9 +1,4 @@
-//import './style.css';
-//import Alpine from 'alpinejs';
-
-//Alpine.start()
-
-class createTodoItem {
+class TodoItem {
     constructor(title, description, dueDate, priority){
         this.title = title
         this.description = description
@@ -29,12 +24,4 @@ class createTodoItem {
     }
 }
 
-const rankedPlay = new createTodoItem('Play ranked 10 matches', 'Log into overwatch and play 10 ranked matches', '10/11/2023', 'Not urgent');
-
-//console.log(rankedPlay);
-
-//rankedPlay.changeTitle = 'Play ranked'
-
-//console.log(rankedPlay);
-
-console.log(rankedPlay)
+export default TodoItem;
