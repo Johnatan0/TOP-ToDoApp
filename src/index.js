@@ -1,40 +1,35 @@
-//import './style.css';
-//import Alpine from 'alpinejs';
+import './style.css';
+import Alpine from 'alpinejs';
+import projects from './components/ProjectMethods';
+import TodoItem from './components/TodoMethods';
 
-//Alpine.start()
+const Content = {}
 
-class createTodoItem {
-    constructor(title, description, dueDate, priority){
-        this.title = title
-        this.description = description
-        this.dueDate = dueDate
-        this.priority = priority
-        this.status = false
-    }
+projects.create(Content, 'myProject1');
 
-    set changeTodoItemTitle(newTitle){
-        this.title = newTitle
-    }
+projects.addItem(Content, 'myProject1', new TodoItem("Task 1", "This is just a test description", "15/11/2023", "Urgent"))
+projects.addItem(Content, 'myProject1', new TodoItem("Task 2", "This is just a test description", "15/11/2023", "Urgent"))
+projects.addItem(Content, 'myProject1', new TodoItem("Task 3", "This is just a test description", "15/11/2023", "Urgent"))
 
-    set changeTodoItemDescription(newDescription){
-        this.description = newDescription
-    }
+projects.create(Content, 'myProject2');
 
-    set changeDueDate(newDate){
-        this.dueDate = newDate
-    }
+projects.addItem(Content, 'myProject2', new TodoItem("Task 1.2", "This is just a test description", "15/11/2023", "Urgent"))
+projects.addItem(Content, 'myProject2', new TodoItem("Task 2.2", "This is just a test description", "15/11/2023", "Urgent"))
+projects.addItem(Content, 'myProject2', new TodoItem("Task 3.2", "This is just a test description", "15/11/2023", "Urgent"))
 
-    set changePriority(newPriority){
-        this.priority = newPriority
-    }
-}
+projects.rename(Content, 'myProject1', 'newName')
 
-const rankedPlay = new createTodoItem('Play ranked 10 matches', 'Log into overwatch and play 10 ranked matches', '10/11/2023', 'Not urgent');
+projects.create(Content, 'myProject3')
 
-//console.log(rankedPlay);
+console.log(Content)
 
-//rankedPlay.changeTitle = 'Play ranked'
+Alpine.start()
 
-//console.log(rankedPlay);
+document.querySelector('input').valueAsDate = new Date();
 
-console.log(rankedPlay)
+document.querySelector('input').addEventListener('input', function(e){console.log(this.valueAsDate)})
+
+console.log(new Date())
+
+
+

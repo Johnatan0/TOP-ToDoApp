@@ -1,3 +1,5 @@
+//This module is responsible of creating and manipulating all the todo items that will go inside projects
+
 class TodoItem {
     constructor(title, description, dueDate, priority){
         this.title = title
@@ -7,11 +9,11 @@ class TodoItem {
         this.status = false
     }
 
-    set changeTodoItemTitle(newTitle){
+    set changeTitle(newTitle){
         this.title = newTitle
     }
 
-    set changeTodoItemDescription(newDescription){
+    set changeDescription(newDescription){
         this.description = newDescription
     }
 

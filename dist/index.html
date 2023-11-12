@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="bundle.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
 </head>
-<body>
+<body class="h-screen w-screen bg-bgSecondary">
 
-    <div id="btn-array">
-        <button id="add-btn">add</button>
-    </div>
-    
+    <header class="flex w-full justify-evenly py-6 border-b border-SecondaryText border-opacity-5">
+        <div class="flex text-primaryText items-center gap-2 font-inter">
+
+            <ion-icon name="folder-open-outline" class="dark:text-bgSecondary dark:bg-primaryText rounded-xl p-2 text-lg"></ion-icon>
+            <h1 class="font-semibold italic">TODO APP</h1>
+
+        </div>
+        <div class="flex gap-2 items-center">
+            <ion-icon name="sunny-outline" class="dark:text-primaryText h-6 text-lg"></ion-icon>
+            <label for="toggle" class="inline-flex relative items-center cursor-pointer">
+                <input type="checkbox" id="toggle" class="sr-only peer">
+                <span class="w-11 h-6 peer-checked:bg-bgPrimary bg-white relative rounded-full after:content-[''] after:w-5 after:h-5 after:rounded-full after:absolute after:bg-PrimaryAccent peer-checked:after:bg-SecondaryAccent after:top-[2px] after:left-[2px] peer-checked:after:translate-x-full after:duration-300 duration-300 peer-focus:ring-4 peer-focus:ring-gray-500"></span>
+            </label>
+            <ion-icon name="moon-outline" class="dark:text-primaryText h-6 text-lg"></ion-icon>
+        </div>
+    </header>
+
+
+
+    <aside>
+    </aside>
+
+
 </body>
 </html>
