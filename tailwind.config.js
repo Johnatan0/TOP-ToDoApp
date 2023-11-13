@@ -1,20 +1,20 @@
 module.exports = {
   content: ['./dist/*.html'],
+  darkMode: 'class',
   theme: {
-    darkMode: 'class',
     extend: {
       fontFamily: {
         'inter' : ['inter']
       },
       colors: {
-        primaryText: '#ebecef',
-        SecondaryText: '#ffffff1a',
+        DarkPrimaryText: '#ebecef',
+        DarkSecondaryText: '#ffffff1a',
 
-        bgPrimary: '#14161A',
-        bgSecondary: '#1B1D21',
+        DarkbgPrimary: '#14161A',
+        DarkbgSecondary: '#1B1D21',
 
-        PrimaryAccent: '#2f62f9',
-        SecondaryAccent: '#92acfc',
+        DarkAccent: '#92acfc',
+        LightAccent: '#2f62f9',
       }
     },
   },

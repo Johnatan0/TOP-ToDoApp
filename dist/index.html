@@ -8,30 +8,47 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
 </head>
-<body class="h-screen w-screen bg-bgSecondary">
+<body class="flex flex-col items-center h-screen w-screen dark:bg-DarkbgPrimary font-inter">
 
-    <header class="flex w-full justify-evenly py-6 border-b border-SecondaryText border-opacity-5">
+    <header class="flex w-full lg:justify-evenly justify-between px-6 py-4 border-b dark:border-DarkSecondaryText border-opacity-5 dark:text-DarkPrimaryText">
+
         <div class="flex text-primaryText items-center gap-2 font-inter">
-
-            <ion-icon name="folder-open-outline" class="dark:text-bgSecondary dark:bg-primaryText rounded-xl p-2 text-lg"></ion-icon>
-            <h1 class="font-semibold italic">TODO APP</h1>
-
+            <ion-icon name="document-text-outline" class="dark:text-DarkbgSecondary dark:bg-DarkPrimaryText rounded-xl p-2 text-xl"></ion-icon>
+            <h1 class="font-semibold">TO<span class="dark:text-DarkAccent">.DO</span> LIST</h1>
         </div>
+
         <div class="flex gap-2 items-center">
-            <ion-icon name="sunny-outline" class="dark:text-primaryText h-6 text-lg"></ion-icon>
+            <ion-icon name="sunny-outline" class="h-6 text-lg"></ion-icon>
             <label for="toggle" class="inline-flex relative items-center cursor-pointer">
                 <input type="checkbox" id="toggle" class="sr-only peer">
-                <span class="w-11 h-6 peer-checked:bg-bgPrimary bg-white relative rounded-full after:content-[''] after:w-5 after:h-5 after:rounded-full after:absolute after:bg-PrimaryAccent peer-checked:after:bg-SecondaryAccent after:top-[2px] after:left-[2px] peer-checked:after:translate-x-full after:duration-300 duration-300 peer-focus:ring-4 peer-focus:ring-gray-500"></span>
+                <span class="w-11 h-6 peer-checked:bg-DarkbgSecondary bg-white relative rounded-full after:content-[''] after:w-5 after:h-5 after:rounded-full after:absolute after:bg-LightAccent peer-checked:after:bg-DarkAccent after:top-[2px] after:left-[2px] peer-checked:after:translate-x-full after:duration-300 duration-300 peer-focus:ring-4 peer-focus:ring-gray-500"></span>
             </label>
-            <ion-icon name="moon-outline" class="dark:text-primaryText h-6 text-lg"></ion-icon>
+            <ion-icon name="moon-outline" class="h-6 text-lg"></ion-icon>
         </div>
+
     </header>
 
+    <div class="flex w-full h-full p-8 lg:max-w-7xl">
+        <aside class="dark:bg-DarkbgSecondary w-56 p-2 h-full rounded-md">
 
+            <h2 class="flex text-DarkPrimaryText items-center m-1 p-2 cursor-pointer hover:scale-95 dark:hover:bg-slate-800 dark:hover:text-DarkAccent font-medium hover:rounded transition duration-200 ease-in-out transform focus:shadow-outline mb-6 border-b border-DarkSecondaryText border-opacity-10"><ion-icon class="mr-2" name="person-circle-outline"></ion-icon>Coolest user<ion-icon class="ml-auto" name="ellipsis-vertical-outline"></ion-icon></h2>
 
-    <aside>
-    </aside>
+            <ul class="text-sm text-gray-500">
+                <li class="flex items-center px-4 py-2 mt-1 cursor-pointer hover:scale-95 dark:hover:bg-slate-800 dark:hover:text-DarkAccent font-medium rounded transition duration-200 ease-in-out transform focus:shadow-outline mb-2"><ion-icon name="list-outline" class="mr-3 text-base"></ion-icon>All Tasks</ion-icon></li>
+                <li class="flex items-center px-4 py-2 mt-1 cursor-pointer hover:scale-95 dark:hover:bg-slate-800 dark:hover:text-DarkAccent font-medium rounded transition duration-200 ease-in-out transform focus:shadow-outline mb-2"><ion-icon name="alert-circle-outline" class="mr-3 text-base"></ion-icon>Urgent</ion-icon></li>
+                <li class="flex items-center px-4 py-2 mt-1 cursor-pointer hover:scale-95 dark:hover:bg-slate-800 dark:hover:text-DarkAccent font-medium rounded transition duration-200 ease-in-out transform focus:shadow-outline mb-2"><ion-icon name="today-outline" class="mr-3 text-base"></ion-icon>Today</ion-icon></li>
+                <li class="flex items-center px-4 py-2 mt-1 cursor-pointer hover:scale-95 dark:hover:bg-slate-800 dark:hover:text-DarkAccent font-medium rounded transition duration-200 ease-in-out transform focus:shadow-outline mb-2"><ion-icon name="calendar-outline" class="mr-3 text-base"></ion-icon>This week</ion-icon></li>
+                <li class="flex items-center px-4 py-2 mt-1 cursor-pointer hover:scale-95 dark:hover:bg-slate-800 dark:hover:text-DarkAccent font-medium rounded transition duration-200 ease-in-out transform focus:shadow-outline mb-2"><ion-icon name="flash-outline" class="mr-3 text-base"></ion-icon>To finish</ion-icon></li>
+                <li class="flex items-center px-4 py-2 mt-1 cursor-pointer hover:scale-95 dark:hover:bg-slate-800 dark:hover:text-DarkAccent font-medium rounded transition duration-200 ease-in-out transform focus:shadow-outline mb-2"><ion-icon name="flash-off-outline" class="mr-3 text-base"></ion-icon>Completed</ion-icon></li>
+            </ul>
+            <p class="px-4 pt-4 text-xs font-bold text-gray-400 uppercase"> PROJECTS</p>
+            <ul>
+            </ul>
 
+            <button class="flex text-sm p-2 my-2 items-center gap-2 text-gray-500 hover:scale-105 dark:hover:text-DarkAccent rounded-lg transition duration-200 ease-in-out transform focus:shadow-outline dark:hover:bg-slate-800 font-medium w-full border-dashed border-2 dark:border-DarkSecondaryText border-opacity-10"><ion-icon class="text-xl" name="add-circle-outline"></ion-icon> New Project</button>
+        </aside>
+    </div>
 
+    
 </body>
 </html>

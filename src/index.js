@@ -25,9 +25,6 @@ console.log(Content)
 
 Alpine.start()
 
-document.querySelector('input').valueAsDate = new Date();
-
-document.querySelector('input').addEventListener('input', function(e){console.log(this.valueAsDate)})
 
 console.log(new Date())
 
