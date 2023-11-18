@@ -6,7 +6,7 @@ const projects = {
           return console.log("Its not possible to create an project with an existing name!")
         } 
 
-        return object[projectName] = []
+        return object[projectName.toString()] = []
     },
 
     delete(object, projectName){

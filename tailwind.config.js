@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./dist/*.html'],
+  content: ['./dist/*.html', './src/**/*.js'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -21,6 +21,6 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')({ nocompatible: true }),],
 }
 
