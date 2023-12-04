@@ -73,7 +73,7 @@
                         <h1 class="text-DarkPrimaryText w-full p-2 border-b border-DarkSecondaryText italic flex items-center justify-center gap-2 font-semibold text-sm"><ion-icon name="alert-circle-outline"></ion-icon>CREATE NEW PROJECT</h1>
 
                         <div class="flex w-full h-20 justify-center flex-col text-DarkPrimaryText px-8 relative">
-                            <input type="text" id="project-name-input" class="peer bg-DarkbgSecondary border rounded-lg px-2 py-1 border-DarkSecondaryText placeholder:text-gray-500 text-gray-500 focus:border-blue-500 outline-none focus:text-DarkPrimaryText text-sm" placeholder maxlength="15">
+                            <input type="text" id="project-name-input" class="peer bg-DarkbgSecondary border rounded-lg px-2 py-1 border-DarkSecondaryText placeholder:text-gray-500 text-gray-500 focus:border-blue-500 outline-none focus:text-DarkPrimaryText text-sm" placeholder maxlength="20">
                             <label for="project-name-input" class="absolute text-gray-500 px-1 bg-DarkbgSecondary top-4 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:top-7 peer-focus:top-4 peer-focus:text-xs peer-focus:text-blue-500 left-[2.59rem] peer-placeholder-shown:text-gray-500 cursor-text transition-all">Project name</label>
                         </div>
 
@@ -89,13 +89,90 @@
         </aside>
 
         <main class="flex flex-col h-full w-full dark:bg-DarkbgSecondary rounded-md border border-DarkSecondaryText border-opacity-5 shadow overflow-hidden">
-            <div x-data="{open: false}" class="flex items-center dark:bg- border-b rounded-t-md border-DarkSecondaryText border-opacity-5 dark:text-DarkPrimaryText p-4">
+            <div x-data="{open: false, open2: false}" class="flex items-center dark:bg- border-b rounded-t-md border-DarkSecondaryText border-opacity-5 dark:text-DarkPrimaryText p-4">
                 <ion-icon name="briefcase-outline" class="text-2xl mr-2" id="title-icon"></ion-icon>
                 <h1  id="title-project" data-project="myLibrary1"></h1>
                 <div class="flex ml-auto text-2xl gap-3 pr-2">
                     <ion-icon @click="open = true" name="create-outline" class="cursor-pointer dark:hover:text-DarkAccent hover:scale-125 duration-200 ease-in-out"></ion-icon>
-                    <ion-icon name="trash-outline" class="cursor-pointer dark:hover:text-DarkAccent hover:scale-125 duration-200 ease-in-out"></ion-icon>
+                    <ion-icon @click="open2 = true" name="trash-outline" class="cursor-pointer dark:hover:text-DarkAccent hover:scale-125 duration-200 ease-in-out"></ion-icon>
                 </div>
+
+                <div x-show="open"
+                x-transition:enter="transition ease-out duration-700"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed top-0 right-0 bottom-0 left-0 w-full h-full flex bg-black bg-opacity-50 justify-center items-center p-4">
+                    <div 
+                    x-show="open" x-trap="open"
+                    x-transition:enter="transition ease-in-out duration-700"
+                    x-transition:enter-start="scale-0"
+                    x-transition:enter-end="scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start=" scale-100"
+                    x-transition:leave-end="scale-0"
+                    @keydown.esc='open = false'
+                    @click.outside="open = false"
+                    class="w-96 rounded-md border border-DarkSecondaryText border-opacity-5 bg-DarkbgSecondary">
+
+                    <h1 class="text-DarkPrimaryText w-full p-2 border-b border-DarkSecondaryText italic flex items-center justify-center gap-2 font-semibold text-sm">
+                    <ion-icon name="build-outline"></ion-icon>EDIT PROJECT NAME</h1>
+
+                    <div class="flex w-full h-20 justify-center flex-col text-DarkPrimaryText px-8 relative">
+                        <input type="text" id="project-new-name" class="peer bg-DarkbgSecondary border rounded-lg px-2 py-1 border-DarkSecondaryText placeholder:text-gray-500 text-gray-500 focus:border-blue-500 outline-none focus:text-DarkPrimaryText text-sm" placeholder maxlength="20">
+                        <label for="project-new-name" class="absolute text-gray-500 px-1 bg-DarkbgSecondary top-4 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:top-7 peer-focus:top-4 peer-focus:text-xs peer-focus:text-blue-500 left-[2.59rem] peer-placeholder-shown:text-gray-500 cursor-text transition-all">New project name</label>
+                    </div>
+
+                    <div class="flex gap-3 justify-end p-4 border-t border-DarkSecondaryText text-DarkPrimaryText">
+                        <button @click="open = false" class="py-2 flex-1 bg-red-500 font-bold rounded hover:outline-1 hover:outline active:scale-95" id="project-edit-cancel">Cancel</button>
+                        <button class="py-2 flex-1 bg-LightAccent font-bold rounded hover:outline-1 hover:outline active:scale-95" id="project-edit">Edit</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div x-show="open2"
+                x-transition:enter="transition ease-out duration-700"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="fixed top-0 right-0 bottom-0 left-0 w-full h-full flex bg-black bg-opacity-50 justify-center items-center p-4">
+                    <div 
+                    x-show="open2" x-trap="open2"
+                    x-transition:enter="transition ease-in-out duration-700"
+                    x-transition:enter-start="scale-0"
+                    x-transition:enter-end="scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start=" scale-100"
+                    x-transition:leave-end="scale-0"
+                    @keydown.esc='open2 = false'
+                    @click.outside="open2 = false"
+                    class="w-96 rounded-md border border-DarkSecondaryText border-opacity-5 bg-DarkbgSecondary">
+
+                    <h1 class="text-DarkPrimaryText w-full p-2 border-b border-DarkSecondaryText flex items-center justify-center gap-2 font-semibold text-sm">
+                    <ion-icon name="build-outline"></ion-icon>CONFIRM PROJECT DELETION</h1>
+
+                    <div class="flex w-full p-4 justify-center flex-col text-DarkPrimaryText px-8 relative text-center">
+                        <p class="text-sm mb-2">Are you sure you want to delete this project?</p>
+                        <p class="text-xs text-gray-400">*This action is permanant and not reversible*</p>
+                    </div>
+
+                    <div class="flex gap-3 justify-end p-4 border-t border-DarkSecondaryText text-DarkPrimaryText">
+                        <button @click="open2 = false" class="py-2 flex-1 bg-red-500 font-bold rounded hover:outline-1 hover:outline active:scale-95" id="project-delete-cancel">No</button>
+                        <button class="py-2 flex-1 bg-LightAccent font-bold rounded hover:outline-1 hover:outline active:scale-95" id="project-delete-confirm">Yes</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div x-data="{open: false}" class="bg-DarkbgSecondary h-full p-4 overflow-auto rounded-b-md scrollbar-none" id="todo-content">
+                <ul class="flex flex-col gap-2 overflow-auto" id="todo-list">
+                </ul>
+
+                <p x-on:click="open = !open" class="flex items-center gap-2 text-DarkPrimaryText w-full border-2 rounded-sm border-DarkSecondaryText border-dashed mt-2 p-4 cursor-pointer hover:bg-DarkAccent hover:bg-opacity-5" tabindex="0"><ion-icon name="add-circle-outline" class="add-todo"></ion-icon>Add a new task!</p>
 
                 <div x-show="open"
                 x-transition:enter="transition ease-out duration-700"
@@ -121,7 +198,7 @@
                     <ion-icon name="build-outline"></ion-icon>EDIT PROJECT NAME</h1>
 
                     <div class="flex w-full h-20 justify-center flex-col text-DarkPrimaryText px-8 relative">
-                        <input type="text" id="project-new-name" class="peer bg-DarkbgSecondary border rounded-lg px-2 py-1 border-DarkSecondaryText placeholder:text-gray-500 text-gray-500 focus:border-blue-500 outline-none focus:text-DarkPrimaryText text-sm" placeholder maxlength="15">
+                        <input type="text" id="project-new-name" class="peer bg-DarkbgSecondary border rounded-lg px-2 py-1 border-DarkSecondaryText placeholder:text-gray-500 text-gray-500 focus:border-blue-500 outline-none focus:text-DarkPrimaryText text-sm" placeholder maxlength="20">
                         <label for="project-new-name" class="absolute text-gray-500 px-1 bg-DarkbgSecondary top-4 text-xs peer-placeholder-shown:text-base peer-placeholder-shown:top-7 peer-focus:top-4 peer-focus:text-xs peer-focus:text-blue-500 left-[2.59rem] peer-placeholder-shown:text-gray-500 cursor-text transition-all">New project name</label>
                     </div>
 
@@ -131,13 +208,6 @@
                     </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="bg-DarkbgSecondary h-full p-4 overflow-auto rounded-b-md scrollbar-none" id="todo-content">
-                <ul class="flex flex-col gap-2 overflow-auto" id="todo-list">
-                </ul>
-
-                <p class="flex items-center gap-2 text-DarkPrimaryText w-full border-2 rounded-sm border-DarkSecondaryText border-dashed mt-2 p-4 cursor-pointer hover:bg-DarkAccent hover:bg-opacity-5" tabindex="0"><ion-icon name="add-circle-outline" class="add-todo"></ion-icon>Add a new task!</p>
             </div>
         </main>
     </div>

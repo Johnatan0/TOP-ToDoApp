@@ -9,35 +9,35 @@ let Content = {
             description: "Description for Task 4",
             dueDate: "2023-12-15",
             priority: "High",
-            status: false,
+            status: false
           },
           {
             title: "Task 5",
             description: "Description for Task 5",
             dueDate: "2023-12-20",
             priority: "Medium",
-            status: false,
+            status: false
           },
           {
             title: "Task 6",
             description: "Description for Task 6",
             dueDate: "2023-12-25",
             priority: "Low",
-            status: false,
+            status: false
           },
           {
             title: "Task 7",
             description: "Description for Task 7",
             dueDate: "2023-12-30",
             priority: "High",
-            status: false,
+            status: false
           },
           {
             title: "Task 8",
             description: "Description for Task 8",
             dueDate: "2024-01-05",
             priority: "Medium",
-            status: false,
+            status: false
           },
 
     ],
@@ -47,21 +47,21 @@ let Content = {
             description: "Description for Task 1",
             dueDate: "2023-11-30",
             priority: "High",
-            status: false,
+            status: false
             },
             {
             title: "Task 2",
             description: "Description for Task 2",
             dueDate: "2023-12-05",
             priority: "Medium",
-            status: false,
+            status: false
             },
             {
             title: "Task 3",
             description: "Description for Task 3",
             dueDate: "2023-12-10",
             priority: "Low",
-            status: false,
+            status: false
             },
     ]
 }
@@ -105,6 +105,7 @@ function CreateProject() {
     projectNameInput.value = '';
     document.querySelector('#projectcreatebtn').addEventListener('click', CreateProject);
     localStorage.setItem('PageContent', JSON.stringify(Content))
+    
     buildProjectList()
 }
 
@@ -113,6 +114,8 @@ function renameProject(){
   const CurrentName = document.querySelector('#title-project').dataset.project;
   const NewName = document.querySelector('#project-new-name').value;
 
+  if(NewName === '') return;
+
   projects.rename(Content, CurrentName, NewName)
   document.querySelector('#title-project').textContent = NewName;
   document.querySelector('#title-project').dataset.project = NewName;
@@ -120,6 +123,17 @@ function renameProject(){
   localStorage.setItem('PageContent', JSON.stringify(Content))
 
   buildProjectList();
+  document.querySelector('#project-edit-cancel').click();
+}
+
+function deleteProject(){
+  const SelectedProject = document.querySelector('#title-project').dataset.project;
+
+  projects.delete(Content, SelectedProject);
+  buildProjectList();
+  localStorage.setItem('PageContent', JSON.stringify(Content))
+  if(document.querySelector('#project-list').firstChild === null) return;
+  document.querySelector('#project-list').firstChild.click();
 }
 
 //This function renders into the main content section the project that was clicked on the sidebar and its todo's items 
@@ -182,4 +196,4 @@ function renderProject(){
   }
 
   
-  export {buildProjectList, CreateProject, renameProject, loadObject}
+  export {buildProjectList, CreateProject, renameProject, loadObject, deleteProject}
